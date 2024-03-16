@@ -1,13 +1,14 @@
+const { error } = require('console');
 const express = require('express')
 const app = express()
-// Middlewares
+const fs = require('fs');
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // nodemon server
-// postman
 
-var users = [];
+var users = require('./data.json');
+
 
 app.get("/api/", (req, res) => {
     res.json(JSON.stringify(users))
@@ -17,13 +18,18 @@ app.get("/api/", (req, res) => {
 function addNewUser(userData)
 {
     users.push(userData);
+    fs.writeFile("data.json", JSON.stringify(users), function(err) {
+        if (err){
+            console.log(err);
+        }
+    })
     console.log(users);
 }
 
 app.post("/api/newuser", (req, res) => {
-    const newUserData = req.body;
-    console.log(newUserData);
+    let newUserData = req.body;
     addNewUser(newUserData);
+    res.send("trimis");
 })
 
 const port = 4987
