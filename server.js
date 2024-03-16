@@ -11,7 +11,7 @@ var users = require('./data.json');
 
 
 app.get("/api/", (req, res) => {
-    res.json(JSON.stringify(users))
+    res.json(JSON.stringify(users))///cu ce vrei sa trimiti 
     console.log("SENT")
 })
 
@@ -25,9 +25,10 @@ function addNewUser(userData)
     })
     console.log(users);
 }
-
+///GET POST
 app.post("/api/newuser", (req, res) => {
     let newUserData = req.body;
+    console.log(newUserData);
     addNewUser(newUserData);
     res.send("trimis");
 })
