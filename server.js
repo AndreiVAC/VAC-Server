@@ -33,5 +33,5 @@ app.post("/api/newuser", (req, res) => {
     res.send("trimis");
 })
 
-const port = 4987
+const port = 8080
 app.listen(port, () => {console.log(`Server started on port ${port}.`)})
