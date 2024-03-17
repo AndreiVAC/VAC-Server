@@ -25,7 +25,7 @@ function addNewUser(userData)
     console.log(users);
 }
 
-app.post("/api/newuser", (req, res) => {
+app.post("/newuser", (req, res) => {
     let newUserData = req.body;
     console.log(newUserData);
     addNewUser(newUserData);
@@ -45,7 +45,7 @@ function tryLogin(data){
     return false;
 }
 
-app.post("/api/login", (req, res) => {
+app.post("/login", (req, res) => {
     let loginInfo = req.body;
     if (tryLogin(loginInfo)){
         res.send(true);
