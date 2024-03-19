@@ -6,7 +6,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(function (req, res, next) {
 
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173'); // https://atc-2024-valve-anti-cheat-fe-linux-web-app.azurewebsites.net
+    res.setHeader('Access-Control-Allow-Origin', 'https://atc-2024-valve-anti-cheat-fe-linux-web-app.azurewebsites.net'); // 
 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
